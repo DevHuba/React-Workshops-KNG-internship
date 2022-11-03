@@ -9,7 +9,7 @@ import { randomOffice } from "./offices-mocks";
 const employees = [];
 const howManyEmployees = 2000;
 
-const createEmployees = howMany => {
+const createEmployees = (howMany) => {
   const employeesData = [];
 
   for (let i = 0; i < howMany; i++) {
@@ -20,10 +20,15 @@ const createEmployees = howMany => {
       firstName: firstName,
       lastName: lastName,
       email: `${firstName}.${lastName}@kuehne-nagel.com`,
-      birthDate: formatJsDate_DD_MM_YYYY(faker.date.birthdate({ min: 20, max: 50 })),
-      gender: faker.name.gender(true),
+      birthDate: formatJsDate_DD_MM_YYYY(
+        faker.date.birthdate({ min: 20, max: 50 })
+      ),
+      gender: faker.name.sex(true),
       startDate: formatJsDate_DD_MM_YYYY(
-        faker.date.betweens("2010-01-01T00:00:00.000Z", "2020-01-01T00:00:00.000Z")[0]
+        faker.date.betweens(
+          "2010-01-01T00:00:00.000Z",
+          "2020-01-01T00:00:00.000Z"
+        )[0]
       ),
       companyPhone: faker.phone.number(),
       companyMobilePhone: faker.phone.number(),
